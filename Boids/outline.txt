@@ -1,0 +1,46 @@
+Setup file
+    - Boids
+    - Universe
+    - Animation
+
+Master
+    - init 
+        - start universe with standart setup
+    - restart
+        - allow universe setup changes restart universe
+
+
+Universe
+    - init
+        - start universe
+            - while true update
+    - update ( generator )
+        - build qtree
+        - loop over Boids
+            - get other boids from qtree
+            - update boids
+        - yield to animation
+        - master restart if button press
+    
+Boids
+    - update self
+        - take list of others
+        - split per force
+
+qtree
+    - insert list of boids
+    - take coord + range -> return list of other boids
+
+Animation
+    - Universe canvas (Coroutine)
+        - simulation
+            - take boids
+            - yield to uni
+        - big bang button
+
+
+
+Future/ToDo
+    - add sliders to alter behaviour without restarting
+    - Avoid walls (maybe)
+    - evening out of direction, emergent behavior or bug?
